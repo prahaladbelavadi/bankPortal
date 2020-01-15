@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PanelModule } from 'primeng/panel';
+import {TableModule} from 'primeng/table';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { PanelModule } from 'primeng/panel';
     BrowserAnimationsModule,
     AppRoutingModule,
     PanelModule,
+    TableModule,
     HttpClientModule,
   ],
   providers: [],
