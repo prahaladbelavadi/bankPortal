@@ -9,15 +9,18 @@ import { DataService } from './../data.service';
 export class HomeComponent implements OnInit {
 
   banks: any;
+  dataLoadedState = false;
 
-  constructor(private dataSvc: DataService) { }
-
-  ngOnInit() {
+  constructor(private dataSvc: DataService) {
     this.dataSvc.fetchData('mumbai').subscribe(res => {
       this.dataSvc.mumbaiData = res;
       this.banks = res;
       console.log(res);
     });
+  }
+
+  ngOnInit() {
+    this.dataLoadedState = true;
   }
 
 }

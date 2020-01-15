@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PanelModule } from 'primeng/panel';
 import {TableModule} from 'primeng/table';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {TableModule} from 'primeng/table';
     PanelModule,
     TableModule,
     HttpClientModule,
+    ProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
