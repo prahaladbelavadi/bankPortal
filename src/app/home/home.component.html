@@ -1,5 +1,11 @@
 <p-panel header="A list of Banks" *ngIf="dataLoadedState">
 
+  <input type="text" p-input [(ngModel)]="textFilter"> : {{textFilter}}
+  <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Select a City" optionLabel="name"></p-dropdown>
+
+  <input [(ngModel)]="listFilter" type="text" class="form-control" id="filterInput" placeholder="Type to filter">
+
+
   <p-table [value]="banks" [paginator]="true" [rowsPerPageOptions]="[10,20,30]">
     <ng-template pTemplate="header">
       <tr>
@@ -12,7 +18,7 @@
         <th>ADDRESS</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-banks>
+    <ng-template pTemplate="body" *ngFor="let banks of filteredBanks">
       <tr>
         <td>{{banks.bank_name}}</td>
         <td>{{banks.ifsc}}</td>
@@ -27,3 +33,6 @@
 </p-panel>
 
 <p-progressSpinner *ngIf=!dataLoadedState></p-progressSpinner>
+
+
+<app-testing></app-testing>
