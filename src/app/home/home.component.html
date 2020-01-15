@@ -1,6 +1,10 @@
-<p-panel header="A list of Banks" *ngIf="dataLoadedState">
+<p-panel *ngIf="dataLoadedState">
+<p-header>
+  <input type="text" pInputText size="50" placeholder="Global Filter" (input)="latable.filterGlobal($event.target.value, 'contains')" style="width:auto" [globalFilterFields]="['ifsc','bank_id', 'branch','address', 'city','district', 'state', 'bank_name']"
+  >
 
-  <p-table [value]="banks" [paginator]="true" [rowsPerPageOptions]="[10,20,30]">
+</p-header>
+  <p-table [value]="banks" [paginator]="true" [rowsPerPageOptions]="[10,20,30]" #latable>
     <ng-template pTemplate="header">
       <tr>
         <th>NAME</th>

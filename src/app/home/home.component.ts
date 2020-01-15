@@ -1,3 +1,4 @@
+import { FilterUtils } from 'primeng/utils/';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './../data.service';
 
@@ -21,6 +22,18 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.dataLoadedState = true;
+    FilterUtils.contains = (value, filter): boolean => {
+      if (filter === undefined || filter === null || filter.trim() === '') {
+        return true;
+      }
+
+      if (value === undefined || value === null) {
+        return false;
+      }
+
+      return parseInt(filter) > value;
+    }
+
   }
 
 }
