@@ -1,6 +1,5 @@
 import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
-import { FilterUtils } from 'primeng/utils';
 
 @Component({
   selector: 'app-testing',
