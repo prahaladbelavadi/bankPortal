@@ -1,6 +1,19 @@
 <p-panel header="A list of Banks" *ngIf="dataLoadedState">
 
-  <p-table [value]="banks" [paginator]="true" [rowsPerPageOptions]="[10,20,30]">
+  <!-- <input type="text" p-input [(ngModel)]="textFilter"> : {{textFilter}} -->
+  <!-- <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Select a City" optionLabel="name"></p-dropdown> -->
+
+  <!-- <input [(ngModel)]="listFilter" type="text" class="form-control" id="filterInput" placeholder="Type to filter"> -->
+
+
+  <input type="text" pInputText size="50" placeholder="Global Filter"
+    (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+
+
+
+
+  <p-table [value]="banks" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10,20,30]" #dt
+    [globalFilterFields]="['bank_name','ifsc', 'branch', 'city','state','address']">
     <ng-template pTemplate="header">
       <tr>
         <th>NAME</th>
@@ -12,18 +25,21 @@
         <th>ADDRESS</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-banks>
+    <ng-template pTemplate="body" let-bank>
       <tr>
-        <td>{{banks.bank_name}}</td>
-        <td>{{banks.ifsc}}</td>
+        <td>{{bank.bank_name}}</td>
+        <td>{{bank.ifsc}}</td>
         <!-- <td>{{banks.bank_id}}</td> -->
-        <td>{{banks.branch}}</td>
-        <td>{{banks.city}}</td>
-        <td>{{banks.state}}</td>
-        <td>{{banks.address}}</td>
+        <td>{{bank.branch}}</td>
+        <td>{{bank.city}}</td>
+        <td>{{bank.state}}</td>
+        <td>{{bank.address}}</td>
       </tr>
     </ng-template>
   </p-table>
 </p-panel>
 
 <p-progressSpinner *ngIf=!dataLoadedState></p-progressSpinner>
+
+
+<app-testing></app-testing>

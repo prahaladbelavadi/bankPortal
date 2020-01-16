@@ -8,14 +8,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PanelModule } from 'primeng/panel';
-import {TableModule} from 'primeng/table';
-import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { TableModule } from 'primeng/table';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { TestingComponent } from './testing/testing.component';
+import { FormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    TestingComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +29,9 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     PanelModule,
     TableModule,
     HttpClientModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    FormsModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './../data.service';
+import { FilterUtils } from 'primeng/api';
 
 @Component({
   selector: 'app-home',
@@ -7,20 +8,47 @@ import { DataService } from './../data.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  banks: any;
+  textFilter: string;
+  selectedCity;
+  banks: any = [];
   dataLoadedState = false;
+  filteredBanks;
 
-  constructor(private dataSvc: DataService) {
-    this.dataSvc.fetchData('mumbai').subscribe(res => {
-      this.dataSvc.mumbaiData = res;
-      this.banks = res;
-      console.log(res);
-    });
+  constructor(public dataSvc: DataService) {
+    // this.dataSvc.cities.forEach(city => {
+    //   this.dataSvc.fetchData(city).subscribe(res => {
+    //     this.dataSvc.cityBankData[city] = res;
+    //     this.dataLoadedState = true;
+    //   });
+    // });
+    // console.log(this.dataSvc.cityBankData);
+
+
   }
+
 
   ngOnInit() {
-    this.dataLoadedState = true;
+    this.dataSvc.fetchData('mumbai').subscribe((res) => {
+      this.banks = res;
+      console.log(JSON.stringify(res));
+      this.dataLoadedState = true;
+    })
+
+    // FilterUtils['custom'] = (value, filter): boolean => {
+    //   if (filter === undefined || filter === null || filter.trim() === '') {
+    //     return true;
+    //   }
+
+    //   if (value === undefined || value === null) {
+    //     return false;
+    //   }
+
+    //   return parseInt(filter) > value;
+    // }
+
   }
+
+
+
 
 }
