@@ -7,7 +7,6 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
 
   private endPoint = 'https://vast-shore-74260.herokuapp.com/banks';
-  cities = ['MUMBAI', 'BANGALORE', 'KOCHI', 'DELHI', 'ERNAKULAM'];
   cityBankData = [];
   constructor(public http: HttpClient) { }
 

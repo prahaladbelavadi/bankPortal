@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   banks: any = [];
   dataLoadedState = false;
   filteredBanks;
+  cities = [{ label: 'MUMBAI', value: 'MUMBAI' }, { label: 'BANGALORE', value: 'BANGALORE' }, { label: 'KOCHI', value: 'KOCHI' }, { label: 'DELHI', value: 'DELHI' }, { label: 'ERNALULAM', value: 'ERNAKULAM' }];
 
   constructor(public dataSvc: DataService) {
     // this.dataSvc.cities.forEach(city => {

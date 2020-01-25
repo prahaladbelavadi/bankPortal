@@ -1,4 +1,4 @@
-<p-panel header="A list of Banks" *ngIf="dataLoadedState">
+<p-panel *ngIf="dataLoadedState">
 
   <!-- <input type="text" p-input [(ngModel)]="textFilter"> : {{textFilter}} -->
   <!-- <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Select a City" optionLabel="name"></p-dropdown> -->
@@ -6,10 +6,16 @@
   <!-- <input [(ngModel)]="listFilter" type="text" class="form-control" id="filterInput" placeholder="Type to filter"> -->
 
 
-  <input type="text" pInputText size="50" placeholder="Global Filter"
-    (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
 
+<p-header>
+  <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
 
+  <p-dropdown [options]="cities" [(ngModel)]="selectedCity">
+    <p>Selected City: {{selectedCity ? selectedCity.name : 'none'}}</p>
+  </p-dropdown>
+
+{{selectedCity}}
+</p-header>
 
 
   <p-table [value]="banks" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10,20,30]" #dt
