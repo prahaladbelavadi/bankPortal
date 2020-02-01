@@ -15,3 +15,5 @@ export class DataService {
   }
 
 }
+
+// checkFav(bank.ifsc)

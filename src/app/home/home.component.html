@@ -34,7 +34,7 @@
         <td>{{bank.city}}</td>
         <td>{{bank.state}}</td>
         <td>{{bank.address}}</td>
-        <td ngClass="checkFav(bank.ifsc)" (click)=favorite(bank.ifsc)> <i class="pi pi-heart"></i> </td>
+        <td ngClass="fav" (click)=favorite(bank.ifsc)> <i class="pi pi-heart"></i> </td>
       </tr>
     </ng-template>
   </p-table>
