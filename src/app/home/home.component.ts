@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
     { label: "MUMBAI", value: "MUMBAI" },
     { label: "KOCHI", value: "KOCHI" },
     { label: "DELHI", value: "DELHI" },
-    { label: "ERNALULAM", value: "ERNAKULAM" }
+    { label: "ERNAKULAM", value: "ERNAKULAM" }
   ];
 
   constructor(public dataSvc: DataService) {}
