@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from './../data.service';
-import { FilterUtils } from 'primeng/api';
+import { Component, OnInit } from "@angular/core";
+import { DataService } from "./../data.service";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
   textFilter: string;
@@ -13,43 +12,42 @@ export class HomeComponent implements OnInit {
   banks: any = [];
   dataLoadedState = false;
   filteredBanks;
-  cities = [{ label: 'MUMBAI', value: 'MUMBAI' }, { label: 'BANGALORE', value: 'BANGALORE' }, { label: 'KOCHI', value: 'KOCHI' }, { label: 'DELHI', value: 'DELHI' }, { label: 'ERNALULAM', value: 'ERNAKULAM' }];
+  cities = [
+    { label: "BANGALORE", value: "BANGALORE" },
+    { label: "MUMBAI", value: "MUMBAI" },
+    { label: "KOCHI", value: "KOCHI" },
+    { label: "DELHI", value: "DELHI" },
+    { label: "ERNALULAM", value: "ERNAKULAM" }
+  ];
 
-  constructor(public dataSvc: DataService) {
-    // this.dataSvc.cities.forEach(city => {
-    //   this.dataSvc.fetchData(city).subscribe(res => {
-    //     this.dataSvc.cityBankData[city] = res;
-    //     this.dataLoadedState = true;
-    //   });
-    // });
-    // console.log(this.dataSvc.cityBankData);
-
-
-  }
-
+  constructor(public dataSvc: DataService) {}
 
   ngOnInit() {
-    this.dataSvc.fetchData('mumbai').subscribe((res) => {
-      this.banks = res;
-      console.log(JSON.stringify(res));
-      this.dataLoadedState = true;
-    })
-
-    // FilterUtils['custom'] = (value, filter): boolean => {
-    //   if (filter === undefined || filter === null || filter.trim() === '') {
-    //     return true;
-    //   }
-
-    //   if (value === undefined || value === null) {
-    //     return false;
-    //   }
-
-    //   return parseInt(filter) > value;
-    // }
-
+    this.selectionUpdate({ value: "Bangalore" });
   }
 
+  selectionUpdate(event) {
+    this.dataSvc.fetchData(event.value).subscribe(res => {
+      this.banks = res;
 
+      // console.log(JSON.stringify(res));
+      const loc = localStorage.getItem("fav");
 
+      this.dataLoadedState = true;
+    });
+  }
+
+  favorite(bank) {
+    localStorage.setItem("fav", JSON.stringify(bank));
+  }
+
+  resetFav() {
+    localStorage.removeItem("fav");
+  }
+
+  checFav(ifsc){
+  if(ifsc)
+    JSON.parse(localStorage.getItem("fav"));
+  }
 
 }

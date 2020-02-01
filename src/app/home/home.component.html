@@ -1,20 +1,14 @@
 <p-panel *ngIf="dataLoadedState">
 
-  <!-- <input type="text" p-input [(ngModel)]="textFilter"> : {{textFilter}} -->
-  <!-- <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Select a City" optionLabel="name"></p-dropdown> -->
+  <p-header>
+    <input type="text" pInputText size="50" placeholder="Global Filter"
+      (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto; margin-right: 10px;">
 
-  <!-- <input [(ngModel)]="listFilter" type="text" class="form-control" id="filterInput" placeholder="Type to filter"> -->
+    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" (onChange)="selectionUpdate($event)">
+      <p>Selected City: {{selectedCity ? selectedCity.name : 'none'}}</p>
+    </p-dropdown>
 
-
-
-<p-header>
-  <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
-
-  <p-dropdown [options]="cities" [(ngModel)]="selectedCity">
-    <p>Selected City: {{selectedCity ? selectedCity.name : 'none'}}</p>
-  </p-dropdown>
-
-</p-header>
+  </p-header>
 
 
   <p-table [value]="banks" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10,20,30]" #dt
@@ -28,6 +22,7 @@
         <th>CITY</th>
         <th>STATE</th>
         <th>ADDRESS</th>
+        <th (click)="resetFav()"> Fav </th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-bank>
@@ -39,6 +34,7 @@
         <td>{{bank.city}}</td>
         <td>{{bank.state}}</td>
         <td>{{bank.address}}</td>
+        <td ngClass="checkFav(bank.ifsc)" (click)=favorite(bank.ifsc)> <i class="pi pi-heart"></i> </td>
       </tr>
     </ng-template>
   </p-table>
