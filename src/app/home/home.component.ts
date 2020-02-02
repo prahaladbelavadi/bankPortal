@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService } from "./../data.service";
+import { Bank } from "../bank";
+import { Route, Router } from "@angular/router";
 
 @Component({
   selector: "app-home",
@@ -20,7 +22,7 @@ export class HomeComponent implements OnInit {
     { label: "ERNAKULAM", value: "ERNAKULAM" }
   ];
 
-  constructor(public dataSvc: DataService) {}
+  constructor(public dataSvc: DataService, public route: Router) {}
 
   ngOnInit() {
     this.selectionUpdate({ value: "Bangalore" });
@@ -30,7 +32,7 @@ export class HomeComponent implements OnInit {
     this.dataSvc.fetchData(event.value).subscribe(res => {
       this.banks = res;
 
-      // console.log(JSON.stringify(res));
+      console.log(res[0]);
       const loc = localStorage.getItem("fav");
 
       this.dataLoadedState = true;
@@ -45,9 +47,16 @@ export class HomeComponent implements OnInit {
     localStorage.removeItem("fav");
   }
 
-  checFav(ifsc){
-  if(ifsc)
-    JSON.parse(localStorage.getItem("fav"));
+  checFav(ifsc) {
+    if (ifsc) {
+      JSON.parse(localStorage.getItem("fav"));
+    }
   }
 
+  pickBank(bank: Bank) {
+    const ifsc = bank.ifsc;
+    this.dataSvc.bankDetail = bank;
+
+    this.route.navigate([ifsc]);
+  }
 }

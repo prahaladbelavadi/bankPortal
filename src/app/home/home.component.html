@@ -26,7 +26,7 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-bank>
-      <tr>
+      <tr (click)="pickBank(bank)" >
         <td>{{bank.bank_name}}</td>
         <td>{{bank.ifsc}}</td>
         <!-- <td>{{banks.bank_id}}</td> -->

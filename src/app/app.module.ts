@@ -14,6 +14,7 @@ import { TestingComponent } from './testing/testing.component';
 import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import {InputTextModule} from 'primeng/inputtext';
+import { BankDetailComponent } from './bank-detail/bank-detail.component';
 
 
 
@@ -21,7 +22,8 @@ import {InputTextModule} from 'primeng/inputtext';
   declarations: [
     AppComponent,
     HomeComponent,
-    TestingComponent
+    TestingComponent,
+    BankDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,23 @@
+<div class="p-grid">
+  <div class="p-col-6 p-offset-3">
+    <p-panel>
+      <p-header>
+        {{bankDetail.bank_name}}
+      </p-header>
+<!-- Can Add labels to each input to signify what they are -->
+<!-- Add guard to prevent users from directly entering this page or use the cached store to filter which ifsc code belongs to which bank and return details -->
+      <div class="p-col-12"><input type="text" [ngModel]="bankDetail.bank_name" disabled> </div>
+      <div class="p-col-12"><input type="text" [ngModel]="bankDetail.ifsc" disabled> </div>
+      <div class="p-col-12"><input type="text" [ngModel]="bankDetail.branch" disabled> </div>
+      <div class="p-col-12"><input type="text" [ngModel]="bankDetail.address" disabled> </div>
+      <div class="p-col-12"><input type="text" [ngModel]="bankDetail.city" disabled> </div>
+      <div class="p-col-12"><input type="text" [ngModel]="bankDetail.district" disabled> </div>
+      <div class="p-col-12"><input type="text" [ngModel]="bankDetail.state" disabled> </div>
+      <!-- <div class="p-col-12"><input type="text" [ngModel]="bankDetail.bank_name" disabled> </div> -->
+
+      <p-footer>
+        <button p-button routerLink="/">Back</button>
+      </p-footer>
+    </p-panel>
+  </div>
+</div>
