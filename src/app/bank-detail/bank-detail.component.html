@@ -4,19 +4,57 @@
       <p-header>
         {{bankDetail.bank_name}}
       </p-header>
-<!-- Can Add labels to each input to signify what they are -->
-<!-- Add guard to prevent users from directly entering this page or use the cached store to filter which ifsc code belongs to which bank and return details -->
-      <div class="p-col-12"><input type="text" [ngModel]="bankDetail.bank_name" disabled> </div>
-      <div class="p-col-12"><input type="text" [ngModel]="bankDetail.ifsc" disabled> </div>
-      <div class="p-col-12"><input type="text" [ngModel]="bankDetail.branch" disabled> </div>
-      <div class="p-col-12"><input type="text" [ngModel]="bankDetail.address" disabled> </div>
-      <div class="p-col-12"><input type="text" [ngModel]="bankDetail.city" disabled> </div>
-      <div class="p-col-12"><input type="text" [ngModel]="bankDetail.district" disabled> </div>
-      <div class="p-col-12"><input type="text" [ngModel]="bankDetail.state" disabled> </div>
-      <!-- <div class="p-col-12"><input type="text" [ngModel]="bankDetail.bank_name" disabled> </div> -->
+      <!-- Can Add labels to each input to signify what they are -->
+      <!-- Add guard to prevent users from directly entering this page or use the cached store to filter which ifsc code belongs to which bank and return details -->
+      <div class="p-col-6">
+        <label for="">Bank Name</label>
+      </div>
+      <div class="p-col-6">
+        <input type="text" pInputText [ngModel]="bankDetail.bank_name" disabled>
+      </div>
+      <div class="p-col-6">
+        <label for="">Bank IFSC Code</label>
+      </div>
+      <div class="p-col-6">
+        <input type="text" pInputText [ngModel]="bankDetail.ifsc" disabled>
+      </div>
+      <div class="p-col-6">
+        <label for="">Bank Branch</label>
+      </div>
+      <div class="p-col-6">
+        <input type="text" pInputText [ngModel]="bankDetail.branch" disabled>
+      </div>
+      <div class="p-col-6">
+        <label for="">Bank Address</label>
+      </div>
+      <div class="p-col-6">
+        <!-- <textarea pInputTextarea [ngModel]="bankDetail.address" disabled></textarea> -->
+        <input type="text" [ngModel]="bankDetail.address" disabled pInputText >
+      </div>
+      <div class="p-col-6">
+        <label for="">Bank City</label>
+      </div>
+      <div class="p-col-6">
+        <input type="text" pInputText [ngModel]="bankDetail.city" disabled>
+      </div>
+      <div class="p-col-6">
+        <label for="">Bank District</label>
+      </div>
+      <div class="p-col-6">
+        <input type="text" pInputText [ngModel]="bankDetail.district" disabled>
+      </div>
+      <div class="p-col-6">
+        <label for="">Bank State</label>
+      </div>
+      <div class="p-col-6">
+        <input type="text" pInputText [ngModel]="bankDetail.state" disabled>
+      </div>
+
+      <!-- <div class="p-col-12"><input type="text" pInputText [ngModel]="bankDetail.bank_name" disabled> </div> -->
 
       <p-footer>
-        <button p-button routerLink="/">Back</button>
+        <button pButton type="button" routerLink="/" label="Back"></button>
+
       </p-footer>
     </p-panel>
   </div>
