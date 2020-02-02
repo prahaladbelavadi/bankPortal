@@ -26,14 +26,14 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-bank>
-      <tr (click)="pickBank(bank)" >
-        <td>{{bank.bank_name}}</td>
-        <td>{{bank.ifsc}}</td>
+      <tr>
+        <td (click)="pickBank(bank)">{{bank.bank_name}}</td >
+        <td (click)="pickBank(bank)">{{bank.ifsc}}</td>
         <!-- <td>{{banks.bank_id}}</td> -->
-        <td>{{bank.branch}}</td>
-        <td>{{bank.city}}</td>
-        <td>{{bank.state}}</td>
-        <td>{{bank.address}}</td>
+        <td (click)="pickBank(bank)">{{bank.branch}}</td>
+        <td (click)="pickBank(bank)">{{bank.city}}</td>
+        <td (click)="pickBank(bank)">{{bank.state}}</td>
+        <td (click)="pickBank(bank)">{{bank.address}}</td>
         <td ngClass="fav" (click)=favorite(bank.ifsc)> <i class="pi pi-heart"></i> </td>
       </tr>
     </ng-template>
